@@ -22,6 +22,7 @@ extension TextExtension on Text {
   Text p14m() => copyWith(style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w600));
   Text p14b() => copyWith(style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w700));
   Text p14r() => copyWith(style: GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w400));
+  Text p13r() => copyWith(style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w400));
   Text p12m() => copyWith(style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w600));
   Text p12b() => copyWith(style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w700));
   Text p12r() => copyWith(style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w400));

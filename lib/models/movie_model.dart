@@ -4,9 +4,9 @@
 
 import 'dart:convert';
 
-Movie movieFromJson(String str) => Movie.fromJson(json.decode(str));
+List<Movie> movieFromJson(String str) => List<Movie>.from(json.decode(str).map((x) => Movie.fromJson(x)));
 
-String movieToJson(Movie data) => json.encode(data.toJson());
+String movieToJson(List<Movie> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Movie {
     bool adult;
