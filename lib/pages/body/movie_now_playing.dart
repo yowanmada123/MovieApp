@@ -98,11 +98,11 @@ class MovieNowPlaying extends StatelessWidget {
                                         const SizedBox(
                                           width: 15,
                                         ),
-                                        Text(value.nowPlayingMovies[index].releaseDate.toYear()).p10r().clamGrey(),
+                                        Text(DateTime.parse(value.nowPlayingMovies[index].releaseDate).toYear()).p10r().clamGrey(),
                                         const SizedBox(
                                           width: 15,
                                         ),
-                                        value.nowPlayingMovies[index].adult ? Text("18+").p10r().clamGrey() : Text("A7+").p10r().clamGrey(),
+                                        value.nowPlayingMovies[index].adult ? const Text("18+").p10r().clamGrey() : const Text("A7+").p10r().clamGrey(),
                                         const SizedBox(
                                           width: 15,
                                         ),

@@ -4,12 +4,12 @@ String localRegion = 'id_ID';
 
 extension DatetimeExt on DateTime {
   DateTime checkUtc() {
-    if (this.isUtc) return this.toLocal();
+    if (isUtc) return toLocal();
     return this;
   }
 
   bool isSameDate(DateTime other) {
-    return this.year == other.year && this.month == other.month && this.day == other.day;
+    return year == other.year && month == other.month && day == other.day;
   }
 
   String toTimeDate() {
@@ -81,6 +81,4 @@ extension DatetimeExt on DateTime {
     DateTime res = checkUtc();
     return res.format('y', localRegion);
   }
-
-  
 }

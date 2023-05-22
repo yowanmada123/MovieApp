@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:movie/models/movie_model.dart';
 import 'package:movie/models/tv_model.dart';
 
 class TvRecommendationProvider extends ChangeNotifier {
@@ -23,18 +22,9 @@ class TvRecommendationProvider extends ChangeNotifier {
         notifyListeners();
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Cek Koneksi Jaringan Anda"),
       ));
     }
   }
-
-  // List<Movie> get allMovie {
-  //   return [..._allMovie];
-  // }
-
-  // void addMovie(){
-  //   _allMovie.add(value);
-  //   notifyListeners();
-  // }
 }

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:movie/models/movie_model.dart';
 
 import '../../models/tv_model.dart';
 
@@ -24,7 +23,7 @@ class TvPopularProvider extends ChangeNotifier {
         notifyListeners();
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Cek Koneksi Jaringan Anda"),
       ));
     }

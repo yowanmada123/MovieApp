@@ -1,14 +1,11 @@
 import 'dart:convert';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:movie/utils/colors.dart';
-import 'package:movie/utils/ext_date.dart';
 import 'package:movie/utils/ext_text.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 
 import '../models/channel_detail_model.dart';
-import '../models/movie_detail_model.dart';
 
 class ChannelDetailPage extends StatefulWidget {
   const ChannelDetailPage({super.key, required this.id});
@@ -22,14 +19,10 @@ class _ChannelDetailPageState extends State<ChannelDetailPage> {
   DetailChannel? object;
 
   Future<void> _getDetailMovie() async {
-    try {
-      // var response = await http.get(Uri.parse("https://api.themoviedb.org/3/movie/${widget.id}?api_key=fbb9572d11b5458ac98f02b84f2bafc4"));
-      var response = await http.get(Uri.parse("https://api.themoviedb.org/3/tv/${widget.id}?api_key=fbb9572d11b5458ac98f02b84f2bafc4"));
-      print(response.statusCode);
+    try { var response = await http.get(Uri.parse("https://api.themoviedb.org/3/tv/${widget.id}?api_key=fbb9572d11b5458ac98f02b84f2bafc4"));
       var jsonObject = json.decode(response.body);
       var respon = json.encode(jsonObject);
       object = detailChannelFromJson(respon);
-      print(object!.overview);
     } catch (e) {
       print(e);
     }
@@ -41,7 +34,7 @@ class _ChannelDetailPageState extends State<ChannelDetailPage> {
       future: _getDetailMovie(),
       builder: (BuildContext context, AsyncSnapshot<void> data) {
         Widget children;
-        print(data.connectionState);
+        // print(data.connectionState);
         if (data.connectionState == ConnectionState.done) {
           children = Stack(children: [
             ClipRRect(
@@ -95,7 +88,7 @@ class _ChannelDetailPageState extends State<ChannelDetailPage> {
                           color: Colors.grey, //New
                           blurRadius: 1.0,
                           offset: Offset(0, -1))
-                    ], color: OPrimaryBlack, borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))),
+                    ], color: OPrimaryBlack, borderRadius: const BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))),
                     child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
                       const SizedBox(
                         height: 10,
@@ -107,7 +100,7 @@ class _ChannelDetailPageState extends State<ChannelDetailPage> {
                           Container(
                             width: 50,
                             height: 5,
-                            decoration: BoxDecoration(border: Border(bottom: BorderSide(width: 2, color: Colors.white))),
+                            decoration: const BoxDecoration(border: Border(bottom: BorderSide(width: 2, color: Colors.white))),
                           )
                           // Icon(Icons.stripe)
                         ],
@@ -122,7 +115,7 @@ class _ChannelDetailPageState extends State<ChannelDetailPage> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Container(
+                          SizedBox(
                             height: 30,
                             child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
@@ -131,7 +124,7 @@ class _ChannelDetailPageState extends State<ChannelDetailPage> {
                                 itemBuilder: (context, index) {
                                   return Row(
                                     children: [
-                                      Container(padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8), decoration: BoxDecoration(color: Colors.grey, borderRadius: BorderRadius.circular(15)), child: Text(object!.genres[index].name).black().p10r()),
+                                      Container(padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8), decoration: BoxDecoration(color: Colors.grey, borderRadius: BorderRadius.circular(15)), child: Text(object!.genres[index].name).black().p10r()),
                                       const SizedBox(
                                         width: 10,
                                       )
@@ -219,7 +212,7 @@ class _ChannelDetailPageState extends State<ChannelDetailPage> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Text("Tagline").clamGrey().p15b(),
+                          const Text("Tagline").clamGrey().p15b(),
                           const SizedBox(
                             height: 5,
                           ),
@@ -255,7 +248,7 @@ class _ChannelDetailPageState extends State<ChannelDetailPage> {
                                                       Container(
                                                         width: 50,
                                                         height: 50,
-                                                        child: Icon(
+                                                        child: const Icon(
                                                           Icons.warning_rounded,
                                                           color: Colors.red,
                                                           size: 10,
@@ -290,11 +283,11 @@ class _ChannelDetailPageState extends State<ChannelDetailPage> {
                           const SizedBox(
                             height: 20,
                           ),
-                          Text("Language").clamGrey().p15b(),
+                          const Text("Language").clamGrey().p15b(),
                           const SizedBox(
                             height: 5,
                           ),
-                          Container(
+                          SizedBox(
                             height: 30,
                             child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
@@ -333,9 +326,9 @@ class _ChannelDetailPageState extends State<ChannelDetailPage> {
                                 }
                               },
                               child: Container(
-                                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                                   height: 40,
-                                  decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(10))),
+                                  decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(10))),
                                   child: Center(
                                       child: Text(
                                     object!.homepage == "" ? "-" : object!.homepage,
@@ -388,7 +381,7 @@ class _ChannelDetailPageState extends State<ChannelDetailPage> {
                                                           color: Colors.red,
                                                           size: 10,
                                                         ),
-                                                        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.black38),
+                                                        decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.black38),
                                                       )
                                                     ],
                                                   );

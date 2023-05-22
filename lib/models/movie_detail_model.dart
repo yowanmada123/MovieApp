@@ -1,8 +1,3 @@
-// To parse this JSON data, do
-//
-//     final detailMovie = detailMovieFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 DetailMovie detailMovieFromJson(String str) => DetailMovie.fromJson(json.decode(str));

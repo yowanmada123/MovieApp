@@ -110,11 +110,7 @@ class ChannelOnAir extends StatelessWidget {
                                           crossAxisAlignment: CrossAxisAlignment.center,
                                           children: [
                                             Text("${value.tvChannel[index].voteCount} Vote").p10r().clamGrey(),
-                                            // Icon(
-                                            //   Icons.thumb_up,
-                                            //   color: OCalmGrey,
-                                            //   size: 8,
-                                            // )
+                                          
                                           ],
                                         )
                                       ],

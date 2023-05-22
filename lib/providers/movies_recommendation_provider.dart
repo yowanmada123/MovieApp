@@ -23,18 +23,9 @@ class MoviesRecommendationProvider extends ChangeNotifier {
         notifyListeners();
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Cek Koneksi Jaringan Anda"),
       ));
     }
   }
-
-  // List<Movie> get allMovie {
-  //   return [..._allMovie];
-  // }
-
-  // void addMovie(){
-  //   _allMovie.add(value);
-  //   notifyListeners();
-  // }
 }

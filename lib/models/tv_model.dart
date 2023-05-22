@@ -1,8 +1,3 @@
-// To parse this JSON data, do
-//
-//     final tv = tvFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 List<Tv> tvFromJson(String str) => List<Tv>.from(json.decode(str).map((x) => Tv.fromJson(x)));

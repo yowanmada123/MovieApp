@@ -23,7 +23,7 @@ class TvOnAirProvider extends ChangeNotifier {
         notifyListeners();
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Cek Koneksi Jaringan Anda"),
       ));
     }

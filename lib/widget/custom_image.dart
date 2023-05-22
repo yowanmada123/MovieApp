@@ -45,7 +45,7 @@ class CustomImage extends StatelessWidget {
               );
             }, loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
               if (loadingProgress == null) return child;
-              return Container(
+              return SizedBox(
                 width: 50,
                 height: 50,
                 child: CircularProgressIndicator(

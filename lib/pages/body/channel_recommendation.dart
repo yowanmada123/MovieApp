@@ -31,7 +31,6 @@ class RecommendationChannel extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        print(value.tvChannel[index].id.toString());
                         Navigator.of(context).push(createChannelRoute(value.tvChannel[index].id.toString()));
                       },
                       child: Column(

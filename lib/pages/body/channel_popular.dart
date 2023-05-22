@@ -20,7 +20,7 @@ class PopularChannel extends StatelessWidget {
       height: 150.0,
       child: Column(
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

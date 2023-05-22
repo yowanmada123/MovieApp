@@ -53,7 +53,7 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> with SingleTi
       setState(() {
         _selectedIndex = _controller.index;
       });
-      print("Selected Index: " + _controller.index.toString());
+      // print("Selected Index: " + _controller.index.toString());
     });
   }
 
@@ -91,11 +91,9 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> with SingleTi
                   child: TabBar(
                       onTap: (index) {
                         _controller.index = index;
-                        print(index);
-                        Future.delayed(Duration(seconds: 2), () {
+                        Future.delayed(const Duration(seconds: 2), () {
                           setState(() {
                             _selectedIndex = _controller.index;
-                            print("$index");
                           });
                         });
                       },
@@ -193,7 +191,7 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> with SingleTi
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return SearchPage();
+                      return const SearchPage();
                     },
                   ),
                 );
@@ -220,6 +218,7 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> with SingleTi
     );
   }
 
+  // ignore: non_constant_identifier_names
   Widget RecommendationMovies() {
     return SliverToBoxAdapter(child: Consumer<MoviesRecommendationProvider>(builder: (context, value, child) {
       if (value.isLoading) {
@@ -228,13 +227,13 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> with SingleTi
         );
       } else {
         return SingleChildScrollView(
-          physics: ScrollPhysics(),
+          physics: const ScrollPhysics(),
           child: Column(
             children: [
               ListView.builder(
                   shrinkWrap: true,
                   itemCount: value.recomendationMovies.length,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) => Column(
                         children: [
                           GestureDetector(
@@ -301,9 +300,9 @@ class _SliverAppBarExampleState extends State<SliverAppBarExample> with SingleTi
                                         Container(
                                           // width: 150.0,
                                           child: Text(
-                                            value.recomendationMovies[index].releaseDate.toYear().toString(),
+                                            DateTime.parse(value.recomendationMovies[index].releaseDate).toYear().toString(),
                                             // "2019",
-                                            style: TextStyle(color: Colors.grey),
+                                            style: const TextStyle(color: Colors.grey),
                                             maxLines: 2,
                                           ).p11m(),
                                         ),

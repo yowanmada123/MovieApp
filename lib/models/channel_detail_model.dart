@@ -1,8 +1,3 @@
-// To parse this JSON data, do
-//
-//     final detailmovie = detailmovieFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 DetailChannel detailChannelFromJson(String str) => DetailChannel.fromJson(json.decode(str));
@@ -79,7 +74,7 @@ class DetailChannel {
   });
 
   factory DetailChannel.fromJson(Map<String, dynamic> json) => DetailChannel(
-        adult: json["adult"] ?? "",
+        adult: json["adult"] ?? false,
         backdropPath: json["backdrop_path"] ?? "",
         createdBy: List<CreatedBy>.from(json["created_by"].map((x) => CreatedBy.fromJson(x))),
         episodeRunTime: List<int>.from(json["episode_run_time"].map((x) => x)),

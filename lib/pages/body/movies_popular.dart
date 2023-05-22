@@ -140,7 +140,6 @@ class PopularMovies extends StatelessWidget {
                   );
                 }
               }
-                  ////////////////////////////////////////////
                   ),
             ),
           ],
